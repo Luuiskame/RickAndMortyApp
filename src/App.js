@@ -8,6 +8,7 @@ import Nav from './components/NavBar/NavBar';
 import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
+import Favorites from './components/Favorites/Favorites';
 //? Hooks
 import { Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -66,6 +67,8 @@ function App() {
             <Route path='/About' element={<About/>}/>
            
             <Route path='/detail/:id' element={<Detail/>}/>
+
+            <Route path='/favorites' element={<Favorites/>}/>
          </Routes>
          
       </div>
