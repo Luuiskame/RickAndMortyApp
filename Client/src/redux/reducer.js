@@ -10,7 +10,7 @@ const reducer = (state = initialState, action)=> {
         case ADD_FAVOURITE:
             return{
                 ...state,
-                myFavorites: action.payload, allCharacters: action.payload
+                myFavorites: action.payload
             }
 
         case DELETE_FAVOURITES:
