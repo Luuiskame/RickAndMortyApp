@@ -13,9 +13,6 @@ import Favorites from './components/Favorites/Favorites';
 import { Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-const email = "yuiftw05@gmail.com"
-const password = "tilines102xD"
-
 function App() {
    const [access, setAccess] = useState(false)
    const [characters, setCharacters] = useState([])
