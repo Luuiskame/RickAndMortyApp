@@ -6,14 +6,15 @@ function getCharById(req,res){
     axios(`${URL}${id}`)
     .then(response => response.data)
     .then(data=>{
-        const {id,status,species,origin,image,gender} = data
+        const {id,status,species,origin,image,gender,name} = data
         const character = {
             id,
             status,
             species,
             origin,
             image, 
-            gender
+            gender,
+            name
         }
         character.id ? res.status(200).json(character) 
         : res.status(404).send("character not found")

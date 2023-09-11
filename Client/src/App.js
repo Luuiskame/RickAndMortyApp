@@ -26,6 +26,7 @@ function App() {
          if (data.name) {
             setCharacters((oldChars) => [...oldChars, data]);
          } else {
+            console.log(data.name)
             window.alert('¡No hay personajes con este ID!');
          }
       });
@@ -42,6 +43,7 @@ function App() {
    //       navigate('/home')
    //    }
    // }
+   //? login with backend
    function login(userData) {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
@@ -51,7 +53,6 @@ function App() {
          access && navigate('/home');
       });
    }
-   //? login with backend
    useEffect(() => {
       !access && navigate('/');
    }, [access]);
