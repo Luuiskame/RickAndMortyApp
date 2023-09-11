@@ -13,11 +13,11 @@ import Favorites from './components/Favorites/Favorites';
 import { Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-const EMAIL = "yuiftw05@gmail.com"
-const PASSWORD = "tilines102xD"
+const email = "yuiftw05@gmail.com"
+const password = "tilines102xD"
 
 function App() {
-   const [access, setAcces] = useState(false)
+   const [access, setAccess] = useState(false)
    const [characters, setCharacters] = useState([])
    const location = useLocation()
    const navigate = useNavigate()
@@ -38,13 +38,23 @@ function App() {
       const updatedCharacters = characters.filter(character=> character.id !== id)
       setCharacters(updatedCharacters)
    }
-
-   const logIn = (userData)=> {
-      if(userData.password === PASSWORD && userData.email === EMAIL){
-         setAcces(true)
-         navigate('/home')
-      }
+   //? ald frontend login
+   // const logIn = (userData)=> {
+   //    if(userData.password === PASSWORD && userData.email === EMAIL){
+   //       setAcces(true)
+   //       navigate('/home')
+   //    }
+   // }
+   function login(userData) {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
    }
+   //? login with backend
    useEffect(() => {
       !access && navigate('/');
    }, [access]);
@@ -59,7 +69,7 @@ function App() {
          }
         
          <Routes>
-            <Route path='/' element={<Form logIn={logIn}/>}/>
+            <Route path='/' element={<Form login={login}/>}/>
            
             <Route path='/home' 
             element={<Cards characters={characters} onClose={onClose}/>}/>

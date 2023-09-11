@@ -2,7 +2,7 @@ import { useState } from "react"
 import validation from "../Validation/Validiation"
 
 
-function Form ({logIn}){
+function Form ({login}){
     const [errors, setErrors] = useState({})
     const [userData, setUserData] = useState({
         email: "",
@@ -22,7 +22,7 @@ function Form ({logIn}){
 
     const handleSubmit = (event)=>{
         event.preventDefault()
-        logIn(userData)
+        login(userData)
     }
     return(
        <form onSubmit={handleSubmit}>
