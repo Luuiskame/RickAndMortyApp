@@ -20,16 +20,28 @@ function App() {
    const navigate = useNavigate()
 
 
-   function onSearch(id) {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then(({ data }) => {
-         if (data.name) {
-            setCharacters((oldChars) => [...oldChars, data]);
-         } else {
-            console.log(data.name)
-            window.alert('¡No hay personajes con este ID!');
-         }
-      });
+ async  function onSearch(id) {
+   try {
+      const response = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+      const {data} = response
+      if(data.name){
+         setCharacters(oldChars=> [...oldChars, data]) 
+      } else {
+         window.alert("There is no character with that id")
+      }
+
+   } catch (error) {
+      window.alert("character not found")
+   }
+      // axios(`http://localhost:3001/rickandmorty/character/${id}`)
+      // .then(({ data }) => {
+      //    if (data.name) {
+      //       setCharacters((oldChars) => [...oldChars, data]);
+      //    } else {
+      //       // console.log(data.name)
+      //       window.alert('¡No hay personajes con este ID!');
+      //    }
+      // });
    }
 
    const onClose = (id)=>{
@@ -44,14 +56,19 @@ function App() {
    //    }
    // }
    //? login with backend
-   function login(userData) {
-      const { email, password } = userData;
-      const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-         const { access } = data;
-         setAccess(data);
-         access && navigate('/home');
-      });
+   async function login(userData) {
+      try {
+         const {email, password} = userData
+         const URL = 'http://localhost:3001/rickandmorty/login/'
+         const response = await axios(URL + `?email=${email}&password=${password}`)
+         const {data} = response
+         const {access} = data
+         setAccess(data)
+         access && navigate('/home')
+         
+      } catch (error) {
+         window.alert("incorrect password")
+      }
    }
    useEffect(() => {
       !access && navigate('/');
