@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { addFavourite, deleteFavourite } from "../redux/actions";
-
 
 export default function Card(props) {
    const {id,name,status,image,onClose} = props
    const dispatch = useDispatch()
    const myFavorites = useSelector(state=> state.myFavorites)
    const [isFav, setIsFav] = useState(false)
+   const location = useLocation()
 
    function handleFavorite(){
       if(isFav){
@@ -16,7 +16,7 @@ export default function Card(props) {
          dispatch(deleteFavourite(id))
       } else {
          setIsFav(true)
-         dispatch(addFavourite({id,name,status,image}))
+         dispatch(addFavourite({id,name,status,image,handleFavorite}))
       }
    }
    useEffect(() => {
@@ -28,20 +28,20 @@ export default function Card(props) {
    }, [myFavorites]);
    return (
       <div>
-         <button onClick={()=> onClose(id)}>X</button>
+         {location.pathname === "/home" ? <button onClick={()=> onClose(id)}>X</button>
+         :null}
          <Link to={`/detail/${id}`}>
          <h2>{name}</h2>
          </Link>
          <h2>{status}</h2>
          <h2>ID: {id}</h2>
+         <div>
          <img src={image} alt='name' />
-         {
-   isFav ? (
-      <button onClick={handleFavorite}>❤️</button>
-   ) : (
-      <button onClick={handleFavorite}>🤍</button>
-   )
-}
+         {isFav ? <button onClick={handleFavorite} handleFavorite={handleFavorite}>❤️</button>  
+         :<button onClick={handleFavorite} handleFavorite={handleFavorite}>🤍</button>}
+         </div>
+  
       </div>
    );
 }
+

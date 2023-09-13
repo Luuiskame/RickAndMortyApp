@@ -48,7 +48,7 @@ function App() {
       const updatedCharacters = characters.filter(character=> character.id !== id)
       setCharacters(updatedCharacters)
    }
-   //? ald frontend login
+   //? old frontend login
    // const logIn = (userData)=> {
    //    if(userData.password === PASSWORD && userData.email === EMAIL){
    //       setAcces(true)
