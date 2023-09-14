@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, DELETE_FAVOURITES } from "./action-types";
+import { ADD_FAVOURITE, DELETE_FAVOURITES, FILTER, ORDER } from "./action-types";
 import axios from 'axios'
 
    export const addFavourite = (character) => {
@@ -34,3 +34,17 @@ export const deleteFavourite = (id) => {
       console.log(error) 
    }
 };
+
+export const filterCards = (gender)=>{
+   return{
+      type: FILTER,
+      payload: gender
+   }
+}
+
+export const orderCards = (a)=>{
+   return{
+      type: ORDER,
+      payload: a
+   }
+}

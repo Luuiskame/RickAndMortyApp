@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { addFavourite, deleteFavourite } from "../redux/actions";
 
 export default function Card(props) {
-   const {id,name,status,image,onClose} = props
+   const {id,name,status,image,onClose,gender} = props
    const dispatch = useDispatch()
    const myFavorites = useSelector(state=> state.myFavorites)
    const [isFav, setIsFav] = useState(false)
@@ -16,7 +16,7 @@ export default function Card(props) {
          dispatch(deleteFavourite(id))
       } else {
          setIsFav(true)
-         dispatch(addFavourite({id,name,status,image,handleFavorite}))
+         dispatch(addFavourite({id,name,status,image,handleFavorite,gender}))
       }
    }
    useEffect(() => {
@@ -35,7 +35,9 @@ export default function Card(props) {
          </Link>
          <h2>{status}</h2>
          <h2>ID: {id}</h2>
+         <h2>Gender: {}</h2>
          <div>
+            
          <img src={image} alt='name' />
          {isFav ? <button onClick={handleFavorite} handleFavorite={handleFavorite}>❤️</button>  
          :<button onClick={handleFavorite} handleFavorite={handleFavorite}>🤍</button>}
