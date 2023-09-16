@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "rickmorty";
+  src: url('../public/font/get_schwifty.ttf');
+}
+
 body {
   margin: 0;
   padding: 0;
