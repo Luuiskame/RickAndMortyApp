@@ -20,7 +20,7 @@ function App() {
    const navigate = useNavigate()
 
 
- async  function onSearch(id) {
+ async function onSearch(id) {
    try {
       const response = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
       const {data} = response
@@ -33,28 +33,35 @@ function App() {
    } catch (error) {
       window.alert("character not found")
    }
-      // axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      // .then(({ data }) => {
-      //    if (data.name) {
-      //       setCharacters((oldChars) => [...oldChars, data]);
-      //    } else {
-      //       // console.log(data.name)
-      //       window.alert('¡No hay personajes con este ID!');
-      //    }
-      // });
+}
+
+   function randomHandler(){
+      let haveIt = [];
+      let random = (Math.random() * 826).toFixed();
+      random = Number(random);
+      if(!haveIt.includes(random)){
+         haveIt.push(random);
+         fetch(`http://localhost:3001/rickandmorty/character/${random}`)
+         .then((response) => response.json())
+         .then((data)=>{
+            if(data.name){
+               setCharacters((oldChars) => [...oldChars, data])
+            } else{
+               window.alert('there are not characters with this ID')
+            }
+         })
+      } else{
+         console.log("You already added all the characters");
+         return false;
+      }
    }
+
 
    const onClose = (id)=>{
       const updatedCharacters = characters.filter(character=> character.id !== id)
       setCharacters(updatedCharacters)
    }
-   //? old frontend login
-   // const logIn = (userData)=> {
-   //    if(userData.password === PASSWORD && userData.email === EMAIL){
-   //       setAcces(true)
-   //       navigate('/home')
-   //    }
-   // }
+
    //? login with backend
    async function login(userData) {
       try {
@@ -66,8 +73,8 @@ function App() {
          setAccess(data)
          access && navigate('/home')
          
-      } catch (error) {
-         window.alert("incorrect password")
+      } catch (error) {   
+         console.log(error)
       }
    }
    useEffect(() => {
@@ -79,7 +86,7 @@ function App() {
         
          {
          location.pathname !== "/" 
-         ?  <Nav onSearch={onSearch}/> 
+         ?  <Nav randomHandler={randomHandler} onSearch={onSearch}/> 
          : null
          }
         

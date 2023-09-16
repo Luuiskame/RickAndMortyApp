@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SearchBar({onSearch}) {
+function SearchBar({onSearch, randomHandler}) {
 
    const [id,setId] = useState("")
 
@@ -9,8 +9,10 @@ function SearchBar({onSearch}) {
    }
    return (
       <div>
-         <input onChange={handleChange} value={id} type='search' />
+         <input onChange={handleChange}  value={id} type='search' />
          <button onClick={()=> {onSearch(id); setId('')}}>Agregar</button>
+         <button onClick={()=>randomHandler()}>add random character</button>
+
       </div>
    );
 }

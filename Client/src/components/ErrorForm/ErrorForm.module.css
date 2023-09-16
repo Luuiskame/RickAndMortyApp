@@ -1,0 +1,24 @@
+
+.error{
+    position: absolute;
+    bottom: 90%;
+	border: 1px solid;
+    border-radius: 5px;
+    text-align: center;
+	margin: 10px auto;
+    /* padding: 2em .7em .9em 4em; */
+	padding: 1em .6em 1em 3em;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	max-width: 460px;
+    color: #D8000C;
+	background-color: #FFBABA;
+	background-image: url('https://i.imgur.com/GnyDvKN.png');
+}
+
+/* .error:before{
+    font-family: FontAwesome;
+    content: '\f057';
+    font-size: 24px;
+    color: #D8000C;
+ } */

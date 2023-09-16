@@ -1,0 +1,91 @@
+
+
+.Form {
+    /* width: 90%;
+    margin: 0 auto; */
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background: #0E21A0; */
+    background: #100720;
+    /* background: #fff; */
+    gap: 1em;
+}
+
+h1 {
+    color: rgb(139, 223, 13);
+    font-family: 'rickmorty';
+}
+
+.labelContainers {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: .7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: .5em;
+    max-width: 408px;
+}
+
+.formLabels{
+    width: 30%;
+    text-align: center;
+    font-size: 1.4em;
+    text-transform: capitalize;
+    color: rgb(139, 223, 13);
+    font-family: 'rickmorty';
+}
+
+.formInput {
+    width: 90%;
+    padding: 1em;
+    border: 2px solid  rgb(139, 223, 13);
+    border-radius: 7px;
+    /* background: #0E21A0; */
+    /* max-width: 408px; */
+}
+
+.buttonForm {
+    margin-top: 1em;
+    padding: .7em;
+    width: 70%;
+    max-width: 408px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    background: #31087B;
+    color: #FFC23C;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+}
+
+.buttonForm:hover {
+    background-color:  rgb(139, 223, 13);
+    color: #31087B;
+    padding: 1em;
+}
+p {
+    font-size: 16px;
+}
+
+.imageContainer {
+    border-radius: 50%;
+    border: 1px solid #FFC23C;
+    width: 70%;
+    height: 180px;
+    max-width: 265px;
+}
+
+.loginImg {
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* image-orientation: flip; */
+}

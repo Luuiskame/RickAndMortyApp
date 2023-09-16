@@ -1,13 +1,30 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import validation from "../Validation/Validiation"
 
+import styles from './Form.module.css'
+
+// ErrorForm
+import ErrorForm from "../ErrorForm/ErrorForm."
 
 function Form ({login}){
+    const [showErrorForm, setShowErrorForm] = useState(false)
+    const [submitClicked, setSubmitClicked] = useState(false)
     const [errors, setErrors] = useState({})
     const [userData, setUserData] = useState({
         email: "",
         password: ""
     })
+
+    useEffect(()=>{
+        if(showErrorForm){
+            const timer = setTimeout(()=>{
+                setShowErrorForm(false)
+            },1000)
+            return ()=>{
+                clearTimeout(timer)
+            }
+        }
+    },[showErrorForm])
 
     const handleChange = (event)=>{
         setUserData({
@@ -20,21 +37,35 @@ function Form ({login}){
         }))
     }
 
-    const handleSubmit = (event)=>{
+    const handleSubmit =  (event)=>{
         event.preventDefault()
-        login(userData)
+        setSubmitClicked(true)
+        if(errors.password && submitClicked){
+            setShowErrorForm(true)
+        } else {
+            login(userData)
+        }
     }
     return(
-       <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.Form}>
+            {showErrorForm  && <ErrorForm/>}
         <h1>Log In</h1>
-        <label htmlFor="email">email</label>
-        <input type="email" name="email" onChange={handleChange} value={userData.email}/>
-        {errors.email && <p>{errors.email}</p>}
+        <div className={styles.imageContainer}>
+            <img className={styles.loginImg} src="/Img/loginPicv2.jpg" alt="image" />
+        </div>
+        
+        <div className={styles.labelContainers}>
+        <label className={styles.formLabels} htmlFor="email">email</label>
+        <input className={styles.formInput} type="email" name="email" onChange={handleChange} value={userData.email}/>
+        {/* {errors.email && <p className={styles.errorP}>{errors.email}</p>} */}
+        </div>
 
-        <label htmlFor="password">password</label>
-        <input type="password" name="password" value={userData.password} onChange={handleChange}/>
-        {errors.password && <p>{errors.password}</p>}
-        <button>Submit</button>
+        <div className={styles.labelContainers}>
+        <label className={styles.formLabels} htmlFor="password">password</label>
+        <input className={styles.formInput} type="password" name="password" value={userData.password} onChange={handleChange}/>
+        {/* {errors.password && <p className={styles.errorP}>{errors.password}</p>} */}
+        </div>
+        <button className={styles.buttonForm}>Submit</button>
     </form>
     )
     
