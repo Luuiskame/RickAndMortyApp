@@ -30,7 +30,7 @@ function Detail (){
             <h2><span>ORIGIN:</span> {character.origin?.name}</h2>
             <h2><span>GENDER:</span> {character.gender}</h2>
             <h2><span>SPECIE:</span> {character.species}</h2>
-            <h2><span>LOCATION:</span> {character.location?.name}</h2>
+            <h2><span>LOCATION:</span> {character.location}</h2>
             </div>
         </div>
     )

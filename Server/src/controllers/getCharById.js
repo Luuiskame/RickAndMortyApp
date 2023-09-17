@@ -14,7 +14,8 @@ async function getCharById(req,res){
             origin: data.origin?.name,
             image: data.image, 
             gender: data.gender,
-            name: data.name
+            name: data.name,
+            location: data.location?.name
         }
         character.id ? res.status(200).json(character) 
         : res.status(400).send("character not found")

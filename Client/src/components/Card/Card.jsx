@@ -1,7 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { addFavourite, deleteFavourite } from "../redux/actions";
+import { addFavourite, deleteFavourite } from "../../redux/actions";
+
+//?
+import styles from './Card.module.css'
 
 export default function Card(props) {
    const {id,name,status,image,onClose,gender} = props
@@ -27,18 +30,18 @@ export default function Card(props) {
       });
    }, [myFavorites]);
    return (
-      <div>
+      <div className={styles.homeContainer}>
          {location.pathname === "/home" ? <button onClick={()=> onClose(id)}>X</button>
          :null}
-         <Link to={`/detail/${id}`}>
-         <h2>{name}</h2>
-         </Link>
+        
+         <h2>Name: {name}</h2>
          <h2>{status}</h2>
          <h2>ID: {id}</h2>
-         <h2>Gender: {}</h2>
+         <h2>Gender: {gender}</h2>
          <div>
-            
+          <Link to={`/detail/${id}`}>
          <img src={image} alt='name' />
+         </Link>
          {isFav ? <button onClick={handleFavorite} handleFavorite={handleFavorite}>❤️</button>  
          :<button onClick={handleFavorite} handleFavorite={handleFavorite}>🤍</button>}
          </div>

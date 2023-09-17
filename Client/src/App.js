@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // components
 import './App.css';
-import Cards from './components/Cards.jsx';
+import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/NavBar/NavBar';
 import About from './components/About/About';
 import Detail from './components/Detail/Detail';

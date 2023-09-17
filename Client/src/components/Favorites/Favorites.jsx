@@ -5,7 +5,7 @@ import { useDispatch} from "react-redux";
 import { useState } from "react";
 
 //? components
-import Card from "../Card"
+import Card from "../Card/Card"
 
 //? redux
 import { filterCards, orderCards } from "../../redux/actions";
