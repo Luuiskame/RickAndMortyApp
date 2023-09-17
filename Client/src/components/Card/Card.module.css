@@ -1,0 +1,51 @@
+/* main container */
+.homeContainer {
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+/* fav and close btn within the image */
+.imgFavContainer {
+    position: relative;
+    /* width: 90%; */
+    margin: 0 auto;
+    max-width: 310px;
+}
+
+.favBtn {
+    position: absolute;
+    right: 1%;
+    bottom: 3%;
+}
+
+.closeBtn {
+    position: absolute;
+    z-index: 1;
+    right: 3%;
+    top: 2%;
+}
+.textContainer {
+    position: absolute;
+    z-index: 1;
+    max-width: 257px;
+}
+
+.homeImgContainer {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid rgb(139, 223, 13);
+}
+
+.homeImg{
+    object-fit: cover;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+

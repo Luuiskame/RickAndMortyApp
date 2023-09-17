@@ -31,19 +31,22 @@ export default function Card(props) {
    }, [myFavorites]);
    return (
       <div className={styles.homeContainer}>
-         {location.pathname === "/home" ? <button onClick={()=> onClose(id)}>X</button>
+         {location.pathname === "/home" ? <button className={styles.closeBtn} onClick={()=> onClose(id)}>X</button>
          :null}
-        
+         <div className={styles.textContainer}>
          <h2>Name: {name}</h2>
          <h2>{status}</h2>
          <h2>ID: {id}</h2>
          <h2>Gender: {gender}</h2>
-         <div>
+         </div>
+         <div className={styles.imgFavContainer}>
           <Link to={`/detail/${id}`}>
-         <img src={image} alt='name' />
+            <div className={styles.homeImgContainer}>
+         <img className={styles.homeImg} src={image} alt='name' />
+         </div>
          </Link>
-         {isFav ? <button onClick={handleFavorite} handleFavorite={handleFavorite}>❤️</button>  
-         :<button onClick={handleFavorite} handleFavorite={handleFavorite}>🤍</button>}
+         {isFav ? <button className={styles.favBtn} onClick={handleFavorite} handleFavorite={handleFavorite}>❤️</button>  
+         :<button className={styles.favBtn} onClick={handleFavorite} handleFavorite={handleFavorite}>🤍</button>}
          </div>
   
       </div>
