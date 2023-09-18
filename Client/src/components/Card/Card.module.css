@@ -21,7 +21,14 @@
     border-radius: 5px;
     border: none;
     padding: .4em;
+    transition: .1s ease-out;
 }
+
+.favBtn:hover {
+    background: red;
+    padding: .6em;
+}
+
 
 .closeBtn {
     position: absolute;
@@ -34,6 +41,14 @@
     filter: brightness(1);
     width: 2em;
     height: 2em;
+    transition: .1s ease-in-out;
+}
+
+.closeBtn:hover {
+    background-color: #31087B;
+    color: #fff;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 /* giving style to the image */
@@ -94,7 +109,7 @@
     font-size: .9em;
     color: #fff;
     letter-spacing: 1px;
-    text-shadow: 1px 1px 2px #000   |1QA<;
+    text-shadow: 1px 1px 2px #000;
 }
 
 .idTextContainer {
