@@ -3,7 +3,7 @@
     width: 90%;
     position: relative;
     margin: 0 auto;
-    max-width: 300px;
+    max-width: 400px;
 }
 
 /* fav and close btn within the image */
@@ -11,13 +11,16 @@
     position: relative;
     /* width: 90%; */
     margin: 0 auto;
-    max-width: 310px;
+    max-width: 400px;
 }
 
 .favBtn {
     position: absolute;
     right: 1%;
     bottom: 3%;
+    border-radius: 5px;
+    border: none;
+    padding: .4em;
 }
 
 .closeBtn {
@@ -25,18 +28,20 @@
     z-index: 1;
     right: 3%;
     top: 2%;
-}
-.textContainer {
-    position: absolute;
-    z-index: 1;
-    max-width: 257px;
+    background: #fff;
+    border: none;
+    border-radius: 5px;
+    filter: brightness(1);
+    width: 2em;
+    height: 2em;
 }
 
+/* giving style to the image */
 .homeImgContainer {
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    border: 1px solid rgb(139, 223, 13);
+    border: 2px solid rgb(139, 223, 13);
 }
 
 .homeImg{
@@ -45,7 +50,60 @@
     width: 100%;
     height: 100%;
     display: block;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
 }
+
+/* styiling and centering image text */
+.textContainer {
+    position: absolute;
+    z-index: 1;
+    max-width: 257px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.nameCardContainer {
+    background-color: #100720;
+    background: #31087B;
+    width: min-content;
+    border-radius: 5px;
+    margin: .5em;
+    /* max-width: 180px; Set the maximum width to 180px */
+    white-space: nowrap; /* Allow text to wrap */
+}
+
+
+.h2CardName {
+    font-size: .9em;
+    color: #fff;
+    font-family: 'rickmorty';
+}
+
+
+.restCardTextContainer {
+    margin: .5em;
+    white-space: nowrap;
+    
+}
+
+
+.h2Card{
+    font-size: .9em;
+    color: #fff;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px #000   |1QA<;
+}
+
+.idTextContainer {
+    background: #071952;
+    width: min-content;
+    border-radius: 5px;
+
+}
+
 
 
 

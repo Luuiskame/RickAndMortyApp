@@ -3,14 +3,16 @@
   src: url('../public/font/get_schwifty.ttf');
 }
 
+*{
+  font-family: 'Inter', sans-serif;
+
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background: #100720;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
