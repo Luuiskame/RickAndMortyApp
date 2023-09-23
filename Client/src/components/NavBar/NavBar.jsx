@@ -1,22 +1,14 @@
-import SearchBar from "../SearchBar"
-import { Link } from "react-router-dom"
+import SearchBar from "../SearchBar/SearchBar"
+import HamburgerMenu from "../Hamburguer/HamburgerMenu"
+//? styles
+import styles from './Navbar.module.css'
 
 function Nav({onSearch, randomHandler}){
    return (
-    <>
+      <div className={styles.navContainer}>
          <SearchBar randomHandler={randomHandler} onSearch={onSearch}/>
-         <Link to={'/home'}>
-            <button>Home</button>
-         </Link>
-         
-         <Link to={'/about'}>
-            <button>About</button>
-         </Link>
-
-         <Link to={'/favorites'}>
-            <button>Favorites</button>
-         </Link>
-    </>
+       <HamburgerMenu/>
+    </div>
    )
 }
 

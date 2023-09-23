@@ -3,7 +3,7 @@
     width: 90%;
     position: relative;
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 768px;
 }
 
 /* fav and close btn within the image */
@@ -11,7 +11,7 @@
     position: relative;
     /* width: 90%; */
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 900px;
 }
 
 .favBtn {
@@ -94,7 +94,7 @@
 .h2CardName {
     font-size: .9em;
     color: #fff;
-    font-family: 'rickmorty';
+    /* font-family: 'rickmorty'; */
 }
 
 
