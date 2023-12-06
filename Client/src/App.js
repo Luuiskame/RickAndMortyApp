@@ -14,7 +14,7 @@ import { Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 function App() {
-   const [access, setAccess] = useState(true)
+   const [access, setAccess] = useState(false)
    const [characters, setCharacters] = useState([])
    const location = useLocation()
    const navigate = useNavigate()

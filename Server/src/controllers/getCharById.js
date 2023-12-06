@@ -9,12 +9,12 @@ async function getCharById(req,res){
         
         const character = {
             id: data.id,
-           name: data.status,
+            name: data.name,
+            status: data.status,
             species: data.species,
             origin: data.origin?.name,
             image: data.image, 
             gender: data.gender,
-            name: data.name,
             location: data.location?.name
         }
         character.id ? res.status(200).json(character) 

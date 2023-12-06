@@ -46,7 +46,8 @@ function Favorites() {
               name={character.name}
               status={character.status}
               image={character.image}
-              handleFavorite
+              origin={character.origin}
+              // handleFavorite
             />
         ))}
       </>

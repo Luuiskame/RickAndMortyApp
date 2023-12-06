@@ -2,9 +2,9 @@ import { ADD_FAVOURITE, DELETE_FAVOURITES, FILTER, ORDER } from "./action-types"
 import axios from 'axios'
 
    export const addFavourite = (character) => {
-      const endpoint = 'http://localhost:3001/rickandmorty/fav'
-
+      
       try {
+         const endpoint = 'http://localhost:3001/rickandmorty/fav'
          return async (dispatch)=>{
             const response = await axios.post(endpoint, character)
             const {data} = response

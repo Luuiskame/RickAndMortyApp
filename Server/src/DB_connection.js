@@ -7,7 +7,7 @@ const UserModel = require('./models/User')
 //sequelize instance
 const sequelize = new Sequelize(
     `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`,
-    {loggin: false, native:false}
+    {logging: false, native:false}
 )
 
 //executing models

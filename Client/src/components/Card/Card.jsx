@@ -12,7 +12,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import styles from './Card.module.css'
 
 export default function Card(props) {
-   const {id,name,status,image,onClose,gender,location} = props
+   const {id,name,status,image,onClose,gender,location,origin,species} = props
    const dispatch = useDispatch()
    const myFavorites = useSelector(state=> state.myFavorites)
    const [isFav, setIsFav] = useState(false)
@@ -24,7 +24,7 @@ export default function Card(props) {
          dispatch(deleteFavourite(id))
       } else {
          setIsFav(true)
-         dispatch(addFavourite({id,name,status,image,handleFavorite,gender,location}))
+         dispatch(addFavourite({id,name,status,image,handleFavorite,gender,origin,location,species}))
       }
    }
    useEffect(() => {
@@ -41,6 +41,7 @@ export default function Card(props) {
          <div className={styles.textContainer}>
             <div className={styles.nameCardContainer}>
          <h2  className={styles.h2CardName}>{name}</h2>
+         <h2>{origin},{gender},{location},{status},{origin},{species}</h2>
          </div>
         
          <div className={styles.restCardTextContainer}>

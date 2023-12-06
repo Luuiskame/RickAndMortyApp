@@ -23,11 +23,12 @@ function Detail (){
     }, [id])
     return(
         <div className={styles.mainDetailContainer}>
-            <div className={styles.mainImageContainer}><img alt={character.name} src={character.image}/></div>
+            <div className={styles.mainImageContainer}><img alt={character.name} src={character.image}/>
+            </div>
             <div className={styles.textContainer}>
             <h2><span>ID:</span> {character.id}</h2>
             <h2><span>NAME:</span> {character.name}</h2>
-            <h2><span>ORIGIN:</span> {character.origin?.name}</h2>
+            <h2><span>ORIGIN:</span> {character.origin}</h2>
             <h2><span>GENDER:</span> {character.gender}</h2>
             <h2><span>SPECIE:</span> {character.species}</h2>
             <h2><span>LOCATION:</span> {character.location}</h2>

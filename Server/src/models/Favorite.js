@@ -28,7 +28,7 @@ module.exports = (sequelize)=>{
             allowNull: false
         },
         origin: {
-            type: DataTypes.JSON,
+            type: DataTypes.STRING,
             allowNull: false
         },
         image: {
