@@ -1,9 +1,9 @@
 /* main container */
 .homeContainer {
     width: 90%;
-    position: relative;
     margin: 0 auto;
-    max-width: 768px;
+    position: relative;
+    max-width: 400px;
 }
 
 /* fav and close btn within the image */
@@ -86,26 +86,30 @@
     width: min-content;
     border-radius: 5px;
     margin: .5em;
-    /* max-width: 180px; Set the maximum width to 180px */
-    white-space: nowrap; /* Allow text to wrap */
+    width: max-content;
+    max-width: 200px;
+ 
 }
 
 
 .h2CardName {
-    font-size: .9em;
+    display: block;
+    font-size: .8em;
     color: #fff;
+    width: 100%;
     /* font-family: 'rickmorty'; */
 }
 
 
 .restCardTextContainer {
     margin: .5em;
-    white-space: nowrap;
-    
+    /* white-space: nowrap; */
+    width: 200px;
 }
 
 
 .h2Card{
+    width: 100%;
     font-size: .9em;
     color: #fff;
     letter-spacing: 1px;
@@ -118,6 +122,7 @@
     border-radius: 5px;
 
 }
+
 
 
 

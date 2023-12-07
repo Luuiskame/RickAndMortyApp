@@ -1,0 +1,15 @@
+
+.cardsContainer {
+    display: flex;
+    margin-top: 2em;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2em;
+}
+
+@media screen and (min-width: 800px){
+    .cardsContainer{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

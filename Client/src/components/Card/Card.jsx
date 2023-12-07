@@ -41,7 +41,6 @@ export default function Card(props) {
          <div className={styles.textContainer}>
             <div className={styles.nameCardContainer}>
          <h2  className={styles.h2CardName}>{name}</h2>
-         <h2>{origin},{gender},{location},{status},{origin},{species}</h2>
          </div>
         
          <div className={styles.restCardTextContainer}>
