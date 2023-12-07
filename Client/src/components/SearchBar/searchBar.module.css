@@ -1,21 +1,18 @@
 
 .searchBarContainer {
     display: flex;
-    /* margin-bottom: 1em; */
-    /* gap: .1em; */
-    width: 90%;
+    width: 100%;
 }
 
 .searchbar{
-    /* background-color: rgb(139, 223, 13); */
     padding: 1em;
     border: 1px solid rgb(139, 223, 13);
-    width: 70%;
+    width: 100%;
+    max-width: 800px;
 }
 
 .buttonsInputContainer{
     display: flex;
-    width: 100%;
     margin-right: .7em;
 }
 
@@ -25,5 +22,5 @@
     border: 1px solid rgb(139, 223, 13);
     color: #fff;
     text-align: center;
-    width: 100%;
+    /* width: 100%; */
 }
