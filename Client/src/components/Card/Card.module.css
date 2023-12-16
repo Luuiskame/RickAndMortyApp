@@ -125,7 +125,14 @@
 
 @media screen and (min-width: 800px){
     .homeContainer {
-        max-width: 400px;
+        max-width: 380px;
+        transition: transform 0.2s, width 0.3s;
+        cursor: pointer;
+
+        &:hover{
+            transform: scale(1.1); 
+            width: 420px;
+        }
     }
 }
 

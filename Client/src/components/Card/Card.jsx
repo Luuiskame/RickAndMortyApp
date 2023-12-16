@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { addFavourite, deleteFavourite } from "../../redux/actions";
@@ -17,6 +17,7 @@ export default function Card(props) {
    const myFavorites = useSelector(state=> state.myFavorites)
    const [isFav, setIsFav] = useState(false)
    const locationHook = useLocation()
+   const navigate = useNavigate()
 
    function handleFavorite(){
       if(isFav){
@@ -26,6 +27,10 @@ export default function Card(props) {
          setIsFav(true)
          dispatch(addFavourite({id,name,status,image,handleFavorite,gender,origin,location,species}))
       }
+   }
+
+   const goToDetail = ()=>{
+      navigate(`/detail/${id}`)
    }
    useEffect(() => {
       myFavorites.forEach((fav) => {
@@ -38,7 +43,7 @@ export default function Card(props) {
       <div className={styles.homeContainer}>
          {locationHook.pathname === "/home" ? <button className={styles.closeBtn} onClick={()=> onClose(id)}><FontAwesomeIcon icon={faTimes} /></button>
          :null}
-         <div className={styles.textContainer}>
+         <div onClick={goToDetail} className={styles.textContainer}>
             <div className={styles.nameCardContainer}>
          <h2  className={styles.h2CardName}>{name}</h2>
          </div>
@@ -52,11 +57,9 @@ export default function Card(props) {
          </div>
          
          <div className={styles.imgFavContainer}>
-          <Link to={`/detail/${id}`}>
-            <div className={styles.homeImgContainer}>
+            <div onClick={goToDetail} className={styles.homeImgContainer}>
          <img className={styles.homeImg} src={image} alt='name'/>
          </div>
-         </Link>
          {isFav ? <button className={styles.favBtn} onClick={handleFavorite} handleFavorite={handleFavorite}>❤️</button>  
          :<button className={styles.favBtn} onClick={handleFavorite} handleFavorite={handleFavorite}>🤍</button>}
          </div>
