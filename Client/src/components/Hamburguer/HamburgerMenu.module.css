@@ -40,9 +40,11 @@
   flex-direction: column;
   align-items: end;
   height: 100vh;
-  width: 70%;
+  width: 100%;
+  /* max-width: 400px; */
   right: 0;
-  background-color: red;
+  margin-top: 2em;
+  background-color: rgba(0,0,0,0.8);
 }
 
 .linksMainContainer {
@@ -50,18 +52,50 @@
   text-align: start;
   display: flex;
   flex-direction: column;
-  width: 40%;
-  gap: 1em;
-  border: 1px solid blue;
+  width: 100%;
+  text-align: center;
 }
 
 .linksContainer{
-  /* width: 3em; */
-  border: 1px solid green;
-  background: blue;
+  height: 2.8em;
+  border: 1px solid rgb(139, 223, 13);
+  background: #31087b;
+  border-radius: 4px;
+  transition: .2s ease-in-out;
+
+  &:hover{
+    background: #24075a;
+    height: 3em;
+  }
 }
 
 .links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 7rem;
   width: 100%;
+  height: 100%;
+  color: aliceblue;
+  text-decoration: none;
 }
 
+@media screen and (min-width: 800px){
+
+  .menuIcon{
+    display: none;
+  }
+  .hamburgerBtnsContainer{
+    display: flex;
+  }
+
+  .linksMainContainer{
+    flex-direction: row;
+    gap: 1em;
+  }
+
+  .linksContainer{
+    /* border: none; */
+    border-radius: 1px;
+  }
+}

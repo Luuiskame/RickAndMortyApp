@@ -23,9 +23,9 @@ function HamburgerMenu() {
       
       <div className={`${styles.hamburgerBtnsContainer} ${isHamburgerOpen ? styles.showHamburgerBtns : ''}`}>
       <ul className={styles.linksMainContainer}>
-        <li className={styles.linksContainer}><Link className={styles.links} to='/home'>Home</Link></li>
-        <li className={styles.linksContainer}><Link className={styles.links} to='favorites'>favorites</Link></li>
-        <li className={styles.linksContainer}><Link className={styles.links} to='about'>about</Link></li>
+        <li className={styles.linksContainer}><Link onClick={toggleMenu} className={styles.links} to='/home'>Home</Link></li>
+        <li className={styles.linksContainer}><Link onClick={toggleMenu} className={styles.links} to='favorites'>favorites</Link></li>
+        <li className={styles.linksContainer}><Link onClick={toggleMenu} className={styles.links} to='about'>about</Link></li>
       </ul>
       </div>
     </div>
