@@ -22,17 +22,11 @@ function HamburgerMenu() {
     </div>
       
       <div className={`${styles.hamburgerBtnsContainer} ${isHamburgerOpen ? styles.showHamburgerBtns : ''}`}>
-      <Link to={'/home'}>
-            <button className={styles.hamburgerBtns}>Home</button>
-         </Link>
-         
-         <Link to={'/about'}>
-            <button className={styles.hamburgerBtns}>About</button>
-         </Link>
-
-         <Link to={'/favorites'}>
-            <button className={styles.hamburgerBtns}>Favorites</button>
-         </Link>
+      <ul className={styles.linksMainContainer}>
+        <li className={styles.linksContainer}><Link className={styles.links} to='/home'>Home</Link></li>
+        <li className={styles.linksContainer}><Link className={styles.links} to='favorites'>favorites</Link></li>
+        <li className={styles.linksContainer}><Link className={styles.links} to='about'>about</Link></li>
+      </ul>
       </div>
     </div>
   );
