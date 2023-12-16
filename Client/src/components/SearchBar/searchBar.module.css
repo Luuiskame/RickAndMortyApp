@@ -24,4 +24,9 @@
     border: 1px solid rgb(139, 223, 13);
     color: #fff;
     cursor: pointer;
+    transition: .2s ease-in-out;
+
+    &:hover {
+        background: #26075f;
+    }
 }

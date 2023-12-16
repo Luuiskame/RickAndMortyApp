@@ -8,9 +8,15 @@ function HamburgerMenu() {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsHamburgerOpen(!isHamburgerOpen);
-    console.log(isHamburgerOpen)
+    if(window.innerWidth < 800){
+      setIsHamburgerOpen(!isHamburgerOpen);
+      console.log(isHamburgerOpen)
+    } else {
+      return
+    }
   };
+
+  
 
   return (
     <div className={`${styles.hamburgerMainContainer} ${isHamburgerOpen ? styles.showHamburgerBtnsContainer : ''}`}>
