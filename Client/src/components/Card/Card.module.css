@@ -3,7 +3,7 @@
     width: 90%;
     margin: 0 auto;
     position: relative;
-    max-width: 400px;
+    max-width: 550px;
 }
 
 /* fav and close btn within the image */
@@ -121,6 +121,12 @@
     width: min-content;
     border-radius: 5px;
 
+}
+
+@media screen and (min-width: 800px){
+    .homeContainer {
+        max-width: 400px;
+    }
 }
 
 
