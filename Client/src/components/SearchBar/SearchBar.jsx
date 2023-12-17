@@ -13,7 +13,7 @@ function SearchBar({onSearch, randomHandler}) {
    }
    return (
       <div className={styles.searchBarContainer}>
-         <input className={styles.searchbar} onChange={handleChange}  value={id} type='search' />
+         <input className={styles.searchbar} onChange={handleChange}  value={id} type='search'  placeholder="enter a ID"/>
          
          <div className={styles.buttonsInputContainer}>
          <button className={styles.inputBtns} onClick={()=> {onSearch(id); setId('')}}> <FontAwesomeIcon icon={faSearchengin} /></button>

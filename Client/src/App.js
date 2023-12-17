@@ -19,6 +19,8 @@ function App() {
    const location = useLocation()
    const navigate = useNavigate()
 
+   console.log(characters)
+
 
  async function onSearch(id) {
    try {
