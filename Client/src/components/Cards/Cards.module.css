@@ -7,9 +7,43 @@
     gap: 2em;
 }
 
+.homeBtnsContainer {
+    width: 90%;
+    margin: 2em auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.homeBtnsContainer button{
+    border: none;
+    min-width: max-content;
+    width: 20%;
+    max-width: 130px;
+    padding: .3em 0;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    background: #1F8A70;
+    transition: .2s ease-in-out;
+}
+
 @media screen and (min-width: 800px){
     .cardsContainer{
         flex-direction: row;
         flex-wrap: wrap;
+    }
+    .homeBtnsContainer button{
+        border: none;
+        min-width: max-content;
+        width: 20%;
+        max-width: 130px;
+        padding: .3em 0;
+        border-radius: 5px;
+        color: #fff;
+        background: rgb(139, 223, 13);
+
+        &:hover{
+            background: rgb(111, 172, 19);
+        }
     }
 }

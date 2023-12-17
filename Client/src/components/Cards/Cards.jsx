@@ -32,6 +32,7 @@ export default function Cards(props) {
    }
 
    return (
+      <>
       <div className={styles.cardsContainer}>
          {currentCharacters?.map((character)=> 
          <Card key={character.id}
@@ -47,8 +48,8 @@ export default function Cards(props) {
          />
          
          )}
-
-<div className={styles.homeBtnsContainer}>
+      </div>
+      <div className={styles.homeBtnsContainer}>
         <button
           className={styles.pagBtn}
           onClick={prevPageHandle}
@@ -62,7 +63,7 @@ export default function Cards(props) {
           onClick={firstPageHandle}
           disabled={currentPage === 1}
         >
-          {currentPage}
+          1
         </button>
 
         <button
@@ -81,6 +82,6 @@ export default function Cards(props) {
           Next
         </button>
       </div>
-      </div>
+      </>
    )
 }
