@@ -42,25 +42,29 @@ function App() {
    }
 }
 
-   function randomHandler(){
+   async function randomHandler(){
       let haveIt = [];
       let random = (Math.random() * 826).toFixed();
-      random = Number(random);
-      if(!haveIt.includes(random)){
-         haveIt.push(random);
-         fetch(`http://localhost:3001/rickandmorty/character/${random}`)
-         .then((response) => response.json())
-         .then((data)=>{
-            if(data.name){
-               setCharacters((oldChars) => [...oldChars, data])
-            } else{
-               window.alert('there are not characters with this ID')
+      random = Number(random)
+      try {
+         if(!haveIt.includes(random)){
+            haveIt.push(random)
+
+            const {data} = await axios(`http://localhost:3001/rickandmorty/character/${random}`)
+
+            const isDuplicate = characters.some(character=> character.id === data.id)
+
+            if(!isDuplicate){
+               setCharacters(oldChars=> [...oldChars, data])
+            } else {
+               window.alert("character found but it's already in your cards")
             }
-         })
-      } else{
-         console.log("You already added all the characters");
-         return false;
+         }
+         
+      } catch (error) {
+         window.alert(error)
       }
+      
    }
 
 
