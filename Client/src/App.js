@@ -24,13 +24,18 @@ function App() {
 
  async function onSearch(id) {
    try {
-      const response = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      const {data} = response
+      const {data} = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+
       if(data.name){
-         setCharacters(oldChars=> [...oldChars, data]) 
-      } else {
-         window.alert("There is no character with that id")
+         const isDuplicate = characters.some(character=> character.id === data.id)
+
+         if(!isDuplicate){
+            setCharacters(oldChars=> [...oldChars, data])
+         } else {
+            window.alert("this character already exist in your cards")
+         }
       }
+      
 
    } catch (error) {
       window.alert("character not found")
