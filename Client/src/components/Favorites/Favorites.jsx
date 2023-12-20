@@ -5,6 +5,7 @@ import { useDispatch} from "react-redux";
 import { useState } from "react";
 
 //? components
+import styles from './Favorites.module.css'
 import Card from "../Card/Card"
 
 //? redux
@@ -28,7 +29,7 @@ function Favorites() {
       
     }
     return (
-      <>
+      <div className={styles.favoritesContainer}>
         <select onChange={handleOrder}>
         <option value="upwards">upwards</option>
         <option value="downwards">downwards</option>
@@ -50,7 +51,7 @@ function Favorites() {
               // handleFavorite
             />
         ))}
-      </>
+      </div>
     );
   }
 

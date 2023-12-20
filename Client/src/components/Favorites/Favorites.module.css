@@ -1,0 +1,15 @@
+
+.favoritesContainer {
+    display: flex;
+    margin-top: 2em;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 2em;
+}
+
+@media screen and (min-width: 800px){
+    .favoritesContainer{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
