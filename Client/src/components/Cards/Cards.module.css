@@ -1,8 +1,23 @@
+.noCharactersMessage{
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.noCharactersMessage p {
+    color: white;
+    /* font-family: 'rickmorty'; */
+    letter-spacing: .2em;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
 
 .cardsContainer {
     display: flex;
     margin-top: 2em;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     gap: 2em;
 }

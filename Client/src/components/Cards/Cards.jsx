@@ -33,6 +33,11 @@ export default function Cards(props) {
 
    return (
       <>
+      {currentCharacters.length === 0 && (
+        <div className={styles.noCharactersMessage}>
+          <p>Click on search to display cards</p>
+        </div>
+      )}
       <div className={styles.cardsContainer}>
          {currentCharacters?.map((character)=> 
          <Card key={character.id}
