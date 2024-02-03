@@ -1,7 +1,8 @@
-import { ADD_FAVOURITE, DELETE_FAVOURITES, ORDER, FILTER, GETFAVORITES } from "./action-types"
+import { ADD_FAVOURITE, DELETE_FAVOURITES, ORDER, FILTER, GETFAVORITES, RESETFILTERS } from "./action-types"
 
 let initialState = {
     myFavorites: [],
+    allFavorites: [],
     allCharacters: []
 }
 
@@ -12,24 +13,27 @@ const reducer = (state = initialState, action)=> {
         return {
             ...state,
             myFavorites: action.payload,
+            allFavorites: action.payload
         }
 
         case ADD_FAVOURITE:
             return{
                 ...state,
                 myFavorites: action.payload,
+                allFavorites: action.payload,
                 allCharacters: action.payload,
             }
 
         case DELETE_FAVOURITES:
             return {
                 ...state,
-                myFavorites: action.payload
+                myFavorites: action.payload,
+                allFavorites: action.payload
                 // myFavorites: state.myFavorites.filter(char=> char.id !== action.payload)
             }
 
         case FILTER:
-            const filteredFav = state.myFavorites.filter(char=> char.gender === action.payload)
+            const filteredFav = state.allFavorites.filter(char=> char.gender === action.payload)
             return{
                 ...state,
                 myFavorites: filteredFav
@@ -38,13 +42,19 @@ const reducer = (state = initialState, action)=> {
         case ORDER:
             let charOrders
             if(action.payload === "upwards"){
-                charOrders = state.myFavorites.sort((a,b)=> a.id > b.id ? 1 : -1)
+                charOrders = state.allFavorites.sort((a,b)=> a.id > b.id ? 1 : -1)
             } else {
-                charOrders = state.myFavorites.sort((a,b)=> b.id > a.id ? 1 : -1)
+                charOrders = state.allFavorites.sort((a,b)=> b.id > a.id ? 1 : -1)
             }
             return{
                 ...state,
                 myFavorites: [...charOrders]
+            }
+        
+        case RESETFILTERS:
+            return {
+                ...state,
+                myFavorites: state.allFavorites
             }
 
         default:

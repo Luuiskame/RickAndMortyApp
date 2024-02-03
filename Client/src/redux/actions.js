@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, DELETE_FAVOURITES, FILTER, ORDER, GETFAVORITES } from "./action-types";
+import { ADD_FAVOURITE, DELETE_FAVOURITES, FILTER, ORDER, GETFAVORITES, RESETFILTERS } from "./action-types";
 import axios from 'axios'
 
    export const addFavourite = (character) => {
@@ -61,5 +61,11 @@ export const getFavorites = ()=> async (dispatch)=>{
       })
    } catch (error) {
       console.log(error)
+   }
+}
+
+export const resetFilters = ()=>{
+   return {
+      type:RESETFILTERS,
    }
 }

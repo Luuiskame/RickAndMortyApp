@@ -9,7 +9,7 @@ import styles from "./Favorites.module.css";
 import Card from "../Card/Card";
 
 //? redux
-import { filterCards, orderCards, getFavorites } from "../../redux/actions";
+import { filterCards, orderCards, getFavorites, resetFilters } from "../../redux/actions";
 
 function Favorites() {
   const dispatch = useDispatch();
@@ -26,6 +26,10 @@ function Favorites() {
   function handleFilter(e) {
     console.log(e.target.value, favorites);
     dispatch(filterCards(e.target.value));
+  }
+
+  const resetFiltersfn = ()=>{
+    dispatch(resetFilters())
   }
 
   useEffect(()=>{
@@ -45,6 +49,7 @@ function Favorites() {
           <option value="Genderless">Genderless</option>
           <option value="unknown">Unknown</option>
         </select>
+        <button onClick={resetFiltersfn}>RESET FILTERS</button>
       </div>
 
       {favorites.length === 0 ? (

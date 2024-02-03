@@ -4,3 +4,4 @@ export const FILTER = "FILTER"
 export const ORDER = "ORDER"
 
 export const GETFAVORITES = "GETFAVORITES"
+export const RESETFILTERS = "RESETFILTERS"
