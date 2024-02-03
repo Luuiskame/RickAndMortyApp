@@ -56,13 +56,13 @@ function Form ({login}){
         
         <div className={styles.labelContainers}>
         <label className={styles.formLabels} htmlFor="email">email</label>
-        <input className={styles.formInput} type="email" name="email" onChange={handleChange} value={userData.email}/>
+        <input placeholder="testuser1@gmail.com" className={styles.formInput} type="email" name="email" onChange={handleChange} value={userData.email}/>
         {/* {errors.email && <p className={styles.errorP}>{errors.email}</p>} */}
         </div>
 
         <div className={styles.labelContainers}>
         <label className={styles.formLabels} htmlFor="password">password</label>
-        <input className={styles.formInput} type="password" name="password" value={userData.password} onChange={handleChange}/>
+        <input placeholder="sweetpotato1" className={styles.formInput} type="password" name="password" value={userData.password} onChange={handleChange}/>
         {/* {errors.password && <p className={styles.errorP}>{errors.password}</p>} */}
         </div>
         <button className={styles.buttonForm}>Submit</button>
