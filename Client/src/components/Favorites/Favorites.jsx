@@ -1,49 +1,49 @@
 //? hooks
-import { useSelector} from "react-redux/es/hooks/useSelector"
-import { Link } from "react-router-dom"
-import { useDispatch} from "react-redux";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 //? components
-import styles from './Favorites.module.css'
-import Card from "../Card/Card"
+import styles from "./Favorites.module.css";
+import Card from "../Card/Card";
 
 //? redux
 import { filterCards, orderCards } from "../../redux/actions";
 
 function Favorites() {
-  const favorites = useSelector((state) => state.myFavorites);  
-  console.log(favorites)
-    const dispatch = useDispatch()
-    const [aux, setAux] = useState(false)
+  const favorites = useSelector((state) => state.myFavorites);
+  console.log(favorites);
+  const dispatch = useDispatch();
+  const [aux, setAux] = useState(false);
 
-    function handleOrder(e){
-      console.log(e.target.value, favorites)
-      dispatch(orderCards(e.target.value))
-      setAux(true)
-    }
+  function handleOrder(e) {
+    console.log(e.target.value, favorites);
+    dispatch(orderCards(e.target.value));
+    setAux(true);
+  }
 
-    function handleFilter(e){
-      console.log(e.target.value, favorites)
-      dispatch(filterCards(e.target.value))
-      
-    }
-    return (
-
-      <div className={styles.favoritesContainer}>
+  function handleFilter(e) {
+    console.log(e.target.value, favorites);
+    dispatch(filterCards(e.target.value));
+  }
+  return (
+    <div className={styles.favoritesContainer}>
+        <div className={styles.filtersContainer}>
         <select onChange={handleOrder}>
-        <option value="upwards">upwards</option>
-        <option value="downwards">downwards</option>
+          <option value="upwards">upwards</option>
+          <option value="downwards">downwards</option>
         </select>
-        
+
         <select onChange={handleFilter}>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
           <option value="Genderless">Genderless</option>
           <option value="unknown">Unknown</option>
         </select>
+      </div>
 
-        {favorites.length === 0 ? (
+      {favorites.length === 0 ? (
         <p>you haven't add any card to your favorites yet</p>
       ) : (
         favorites.map((character) => (
@@ -60,6 +60,6 @@ function Favorites() {
       )}
     </div>
   );
-  }
+}
 
-export default Favorites
+export default Favorites;

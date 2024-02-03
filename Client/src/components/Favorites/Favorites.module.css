@@ -6,6 +6,11 @@
     flex-direction: column;
     gap: 2em;
 }
+
+.filtersContainer {
+    display: flex;
+    justify-content: center;
+}
 p {
     color: white;
     width: 90%;
