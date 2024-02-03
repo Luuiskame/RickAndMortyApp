@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, DELETE_FAVOURITES, FILTER, ORDER } from "./action-types";
+import { ADD_FAVOURITE, DELETE_FAVOURITES, FILTER, ORDER, GETFAVORITES } from "./action-types";
 import axios from 'axios'
 
    export const addFavourite = (character) => {
@@ -46,5 +46,20 @@ export const orderCards = (a)=>{
    return{
       type: ORDER,
       payload: a
+   }
+}
+
+export const getFavorites = ()=> async (dispatch)=>{
+   try {
+      const response = await axios('http://localhost:3001/rickandmorty/fav')
+      const data = response.data
+      console.log(data)
+
+      dispatch({
+         type: GETFAVORITES,
+         payload: data,
+      })
+   } catch (error) {
+      console.log(error)
    }
 }

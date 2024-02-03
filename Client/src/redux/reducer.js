@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, DELETE_FAVOURITES, ORDER, FILTER } from "./action-types"
+import { ADD_FAVOURITE, DELETE_FAVOURITES, ORDER, FILTER, GETFAVORITES } from "./action-types"
 
 let initialState = {
     myFavorites: [],
@@ -7,6 +7,13 @@ let initialState = {
 
 const reducer = (state = initialState, action)=> {
     switch(action.type){
+
+        case GETFAVORITES: 
+        return {
+            ...state,
+            myFavorites: action.payload,
+        }
+
         case ADD_FAVOURITE:
             return{
                 ...state,
