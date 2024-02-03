@@ -29,6 +29,7 @@ function Favorites() {
       
     }
     return (
+
       <div className={styles.favoritesContainer}>
         <select onChange={handleOrder}>
         <option value="upwards">upwards</option>
@@ -41,18 +42,24 @@ function Favorites() {
           <option value="Genderless">Genderless</option>
           <option value="unknown">Unknown</option>
         </select>
-        {favorites.map((character) => (
-            <Card
-              id={character.id}
-              name={character.name}
-              status={character.status}
-              image={character.image}
-              origin={character.origin}
-              // handleFavorite
-            />
-        ))}
-      </div>
-    );
+
+        {favorites.length === 0 ? (
+        <p>you haven't add any card to your favorites yet</p>
+      ) : (
+        favorites.map((character) => (
+          <Card
+            key={character.id}
+            id={character.id}
+            name={character.name}
+            status={character.status}
+            image={character.image}
+            origin={character.origin}
+            // handleFavorite
+          />
+        ))
+      )}
+    </div>
+  );
   }
 
 export default Favorites

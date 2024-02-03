@@ -6,6 +6,11 @@
     flex-direction: column;
     gap: 2em;
 }
+p {
+    color: white;
+    width: 90%;
+    margin: 0 auto;
+}
 
 @media screen and (min-width: 800px){
     .favoritesContainer{
