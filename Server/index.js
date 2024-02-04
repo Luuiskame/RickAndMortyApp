@@ -1,11 +1,11 @@
 //? EXPRESS
 const express = require('express')
-const router = require('./routes/')
+const router = require('./src/routes/index')
 const server = express()
 
 const port = process.env.PORT || 3001
 // sequelize
-const {conn} = require('./DB_connection')
+const {conn} = require('./src/DB_connection')
 
 server.listen(port, ()=>{
    conn.sync({force: false})
