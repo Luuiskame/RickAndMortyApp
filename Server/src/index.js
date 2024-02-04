@@ -2,14 +2,14 @@
 const express = require('express')
 const router = require('./routes/')
 const server = express()
-const PORT = 3001
 
+const port = process.env.PORT || 3001
 // sequelize
 const {conn} = require('./DB_connection')
 
-server.listen(PORT, ()=>{
+server.listen(port, ()=>{
    conn.sync({force: false})
-    console.log(`server running on port ${PORT}`)
+    console.log(`server running on port ${port}`)
 })
 
 server.use((req, res, next) => {
