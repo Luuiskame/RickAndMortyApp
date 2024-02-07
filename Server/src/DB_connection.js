@@ -12,6 +12,7 @@ const sequelize = new Sequelize(POSTGRES_URL + "?sslmode=require", {
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
   });
 
+
 //executing models
 FavoriteModel(sequelize)
 UserModel(sequelize)
