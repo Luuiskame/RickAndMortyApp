@@ -8,23 +8,12 @@ import ErrorForm from "../ErrorForm/ErrorForm."
 
 function Form ({login}){
     const [showErrorForm, setShowErrorForm] = useState(false)
-    const [submitClicked, setSubmitClicked] = useState(false)
     const [errors, setErrors] = useState({})
+    
     const [userData, setUserData] = useState({
         email: "",
         password: ""
     })
-
-    useEffect(()=>{
-        if(showErrorForm){
-            const timer = setTimeout(()=>{
-                setShowErrorForm(false)
-            },1000)
-            return ()=>{
-                clearTimeout(timer)
-            }
-        }
-    },[showErrorForm])
 
     const handleChange = (event)=>{
         setUserData({
@@ -39,13 +28,15 @@ function Form ({login}){
 
     const handleSubmit =  (event)=>{
         event.preventDefault()
-        setSubmitClicked(true)
-        if(errors.password && submitClicked){
-            setShowErrorForm(true)
-        } else {
+        if(userData.password !== "sweetpotato1" || userData.email !== "testuser1@gmail.com") setShowErrorForm(true)
             login(userData)
-        }
     }
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            setShowErrorForm(false)
+        },1000)
+    },[showErrorForm])
     return(
         <form onSubmit={handleSubmit} className={styles.Form}>
             {showErrorForm  && <ErrorForm/>}

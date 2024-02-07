@@ -13,6 +13,8 @@ import Favorites from './components/Favorites/Favorites';
 import { Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+const URL = process.env.NODE_ENV === "development" ? 'http://localhost:3001/rickandmorty/' : "https://rick-and-morty-app-blush-ten.vercel.app/rickandmorty/"
+
 function App() {
    const [access, setAccess] = useState(false)
    const [characters, setCharacters] = useState([])
@@ -24,7 +26,7 @@ function App() {
 
  async function onSearch(id) {
    try {
-      const {data} = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+      const {data} = await axios(`${URL}character/${id}`)
 
       if(data.name){
          const isDuplicate = characters.some(character=> character.id === data.id)
@@ -50,7 +52,7 @@ function App() {
          if(!haveIt.includes(random)){
             haveIt.push(random)
 
-            const {data} = await axios(`http://localhost:3001/rickandmorty/character/${random}`)
+            const {data} = await axios(`${URL}character/${random}`)
 
             const isDuplicate = characters.some(character=> character.id === data.id)
 
@@ -77,8 +79,7 @@ function App() {
    async function login(userData) {
       try {
          const {email, password} = userData
-         const URL = 'http://localhost:3001/rickandmorty/login/'
-         const response = await axios(URL + `?email=${email}&password=${password}`)
+         const response = await axios(`${URL}login/?email=${email}&password=${password}`)
          const {data} = response
          const {access} = data
          setAccess(data)

@@ -1,12 +1,13 @@
 import { ADD_FAVOURITE, DELETE_FAVOURITES, FILTER, ORDER, GETFAVORITES, RESETFILTERS } from "./action-types";
 import axios from 'axios'
 
+const URL = process.env.NODE_ENV === "development" ? 'http://localhost:3001/rickandmorty/' : "https://rick-and-morty-app-blush-ten.vercel.app/rickandmorty/"
+
    export const addFavourite = (character) => {
       
       try {
-         const endpoint = 'http://localhost:3001/rickandmorty/fav'
          return async (dispatch)=>{
-            const response = await axios.post(endpoint, character)
+            const response = await axios.post(`${URL}fav`, character)
             const {data} = response
             return dispatch({
                type: ADD_FAVOURITE,
@@ -21,9 +22,8 @@ import axios from 'axios'
 
 export const deleteFavourite = (id) => {
    try {
-      const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id
       return async (dispatch)=>{
-      const response = await axios.delete(endpoint)
+      const response = await axios.delete(`${URL}/fav/${id}`)
       const {data} = response
       return dispatch({
          type: DELETE_FAVOURITES,
@@ -51,7 +51,7 @@ export const orderCards = (a)=>{
 
 export const getFavorites = ()=> async (dispatch)=>{
    try {
-      const response = await axios('http://localhost:3001/rickandmorty/fav')
+      const response = await axios(`${URL}fav`)
       const data = response.data
       console.log(data)
 
