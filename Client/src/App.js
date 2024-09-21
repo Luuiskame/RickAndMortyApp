@@ -25,6 +25,17 @@ function App() {
 
 
  async function onSearch(id) {
+
+   console.log(typeof id)
+   
+   if(id === ""){
+     return window.alert("Please type something before searching")
+   }
+
+   if(typeof id !== "number"){
+      return window.alert('you have to type a number')
+   }
+   
    try {
       const {data} = await axios(`${URL}character/${id}`)
 

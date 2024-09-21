@@ -6,22 +6,43 @@ import { faSearchengin } from '@fortawesome/free-brands-svg-icons';
 
 function SearchBar({onSearch, randomHandler}) {
 
-   const [id,setId] = useState("")
+   const [id, setId] = useState(null);
 
-   const handleChange = (e)=>{
-      setId(e.target.value)
-   }
+   const handleChange = (e) => {
+      const value = e.target.value;
+      
+      setId(value ? Number(value) : null);
+   };
+
    return (
       <div className={styles.searchBarContainer}>
-         <input className={styles.searchbar} onChange={handleChange}  value={id} type='search'  placeholder="enter a ID"/>
+         <input 
+            className={styles.searchbar} 
+            onChange={handleChange}  
+            value={id || ''} 
+            type='search'  
+            placeholder="Enter any number"
+         />
          
          <div className={styles.buttonsInputContainer}>
-         <button className={styles.inputBtns} onClick={()=> {onSearch(id); setId('')}}> <FontAwesomeIcon icon={faSearchengin} /></button>
-         <button className={styles.inputBtns} onClick={()=>randomHandler()}>ADD RANDOM</button>
+         <button 
+            className={styles.inputBtns} 
+            onClick={() => { 
+               onSearch(id); 
+               setId(null);
+            }}>
+            <FontAwesomeIcon icon={faSearchengin} />
+         </button>
+         <button 
+            className={styles.inputBtns} 
+            onClick={() => randomHandler()}>
+            ADD RANDOM
+         </button>
          </div>
 
       </div>
    );
 }
+
 
 export default SearchBar

@@ -3,8 +3,9 @@ const axios = require('axios')
 
 async function getCharById(req,res){
     const {id} = req.params
+    const idToString = id?.toString()
     try {
-        const response = await axios(`${URL}${id}`)
+        const response = await axios(`${URL}${idToString}`)
         const data = response.data
         
         const character = {

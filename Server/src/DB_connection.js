@@ -6,11 +6,17 @@ const UserModel = require('./models/User')
 const pg = require('pg')
 
 //sequelize instance
-const sequelize = new Sequelize(POSTGRES_URL + "?sslmode=require", {
-    dialectModule: pg,
-    logging: false, // set to console.log to see the raw SQL queries
-    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-  });
+const sequelize = POSTGRES_URL
+  ? new Sequelize(POSTGRES_URL, {
+      dialect: 'postgres',
+      dialectModule: pg,
+      logging: false, // set to console.log to see the raw SQL queries
+      native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+    })
+  :  new Sequelize(
+    `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`,
+    {logging: false, native:false}
+)
 
 
 //executing models
