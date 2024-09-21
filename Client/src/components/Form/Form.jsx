@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import validation from "../Validation/Validiation"
+import { useNavigate } from "react-router-dom"
 
 import styles from './Form.module.css'
 
@@ -7,6 +8,7 @@ import styles from './Form.module.css'
 import ErrorForm from "../ErrorForm/ErrorForm."
 
 function Form ({login}){
+    const navigate = useNavigate()
     const [showErrorForm, setShowErrorForm] = useState(false)
     const [errors, setErrors] = useState({})
     
@@ -29,7 +31,8 @@ function Form ({login}){
     const handleSubmit =  (event)=>{
         event.preventDefault()
         if(userData.password !== "sweetpotato1" || userData.email !== "testuser1@gmail.com") setShowErrorForm(true)
-            login(userData)
+            navigate('/home')
+            
     }
 
     useEffect(()=>{
