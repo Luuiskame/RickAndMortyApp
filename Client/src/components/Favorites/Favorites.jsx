@@ -32,9 +32,6 @@ function Favorites() {
     dispatch(resetFilters())
   }
 
-  useEffect(()=>{
-    dispatch(getFavorites())
-  },[])
   return (
     <div className={styles.favoritesContainer}>
         <div className={styles.filtersContainer}>
@@ -63,7 +60,6 @@ function Favorites() {
             status={character.status}
             image={character.image}
             origin={character.origin}
-            // handleFavorite
           />
         ))
       )}

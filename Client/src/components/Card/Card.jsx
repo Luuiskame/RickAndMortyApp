@@ -33,12 +33,15 @@ export default function Card(props) {
       navigate(`/detail/${id}`)
    }
    useEffect(() => {
-      myFavorites.forEach((fav) => {
-         if (fav.id === id) {
-            setIsFav(true);
-         }
-      });
+      if(myFavorites.length > 0){
+         myFavorites.forEach((fav) => {
+            if (fav.id === id) {
+               setIsFav(true);
+            }
+         });
+      }
    }, [myFavorites]);
+   
    return (
       <div className={styles.homeContainer}>
          {locationHook.pathname === "/home" ? <button className={styles.closeBtn} onClick={()=> onClose(id)}><FontAwesomeIcon icon={faTimes} /></button>
