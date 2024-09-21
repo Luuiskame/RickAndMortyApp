@@ -1,7 +1,8 @@
+import styles from './About.module.css'
 
 function About (){
     return(
-        <p>Hola</p>
+        <p className={styles.titleStyles}>This was my very first serious project. I hope you enjoyed it!</p>
     )
 }
 
