@@ -25,7 +25,7 @@ export default function Card(props) {
          dispatch(deleteFavourite(id))
       } else {
          setIsFav(true)
-         dispatch(addFavourite({id,name,status,image,handleFavorite,gender,origin,location,species}))
+         dispatch(addFavourite({id,name,status,image,gender,origin,location,species}))
       }
    }
 
@@ -60,8 +60,8 @@ export default function Card(props) {
             <div onClick={goToDetail} className={styles.homeImgContainer}>
          <img className={styles.homeImg} src={image} alt='name'/>
          </div>
-         {isFav ? <button className={styles.favBtn} onClick={handleFavorite} handleFavorite={handleFavorite}>❤️</button>  
-         :<button className={styles.favBtn} onClick={handleFavorite} handleFavorite={handleFavorite}>🤍</button>}
+         {isFav ? <button className={styles.favBtn} onClick={handleFavorite}>❤️</button>  
+         :<button className={styles.favBtn} onClick={handleFavorite}>🤍</button>}
          </div>
       </div>
    );
